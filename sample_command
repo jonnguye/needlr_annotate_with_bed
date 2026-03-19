@@ -1,0 +1,14 @@
+#!/bin/bash
+#SBATCH --job-name=nf-needlr_bed
+#SBATCH --output=nf-needlr_bed_%j.out
+#SBATCH --partition=caseyg21
+#SBATCH --nodes=1
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=1
+#SBATCH --mem=8G
+#SBATCH --time=01:00:00
+
+ml biology
+ml nextflow
+
+nextflow run main.nf --input_tsvs "/oak/stanford/groups/smontgom/jonnguye/cardioid_sv/needLR_v3.5_local/needLR_output/*.pbsv_needLR_v3.5_basic/*RESULTS.txt"
